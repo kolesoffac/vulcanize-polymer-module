@@ -1,0 +1,57 @@
+{
+  "name": "vulcanize-polymer-module",
+  "version": "2.0.0",
+  "description": "Vulcanize sub components of polymer-modules for non-polymer project.",
+  "main": "imports.html",
+  "scripts": {
+    "build": "rollup -c",
+    "vulcanize": "vulcanize imports.html  --inline-scripts --inline-css --strip-comments",
+    "run-vulcanize": "npm run vulcanize > imports.vulcanize.html",
+    "vulcanized": "vulcanize imports.html  --inline-scripts --inline-css --strip-comments | crisper  --html imports.vulcanized.html --js imports.vulcanized.js > imports.vulcanized.html",
+    "html-minifier": "html-minifier imports.vulcanized.html --remove-optional-tags --collapse-whitespace --preserve-line-breaks -o imports.vulcanized.min.html",
+    "build-all": "npm run vulcanized && npm run build && npm run html-minifier"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolesoffac/vulcanize-polymer-module.git"
+  },
+  "author": "Kolesov Anatoly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kolesoffac/vulcanize-polymer-module/issues"
+  },
+  "homepage": "https://github.com/kolesoffac/vulcanize-polymer-module.git",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "npm-run-all": "^3.1.2",
+    "path": "^0.12.7",
+    "rollup": "^0.37.2",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-cleanup": "^1.0.0",
+    "rollup-plugin-commonjs": "^6.0.1",
+    "rollup-plugin-css-only": "^0.2.0",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-html-entry": "^0.1.0",
+    "rollup-plugin-inject": "^2.0.0",
+    "rollup-plugin-json": "^2.1.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-progress": "^0.1.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-plugin-visualizer": "^0.2.0",
+    "rollup-watch": "^2.5.0",
+    "uglify-es": "^3.0.25",
+    "uglify-js": "^2.7.5"
+  },
+  "dependencies": {}
+}
